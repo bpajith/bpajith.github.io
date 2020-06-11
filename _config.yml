@@ -23,12 +23,8 @@ permalink: none
 # List of links in the navigation bar
 navbar-links:
   Resources:
-    - Python: "python/index"
-    - Differential Equations: "ODE/index"
+    - Python for Education: "python/index"
 
-  Science:
-    - ODE 1: "python/ode1"
-    - About 2: "about"
   Books:
     - Science: "books/science"
   Blog:
