@@ -16,6 +16,16 @@ Exactly after ten years it has been revised. Mainly to change examples to Python
 Download the PDF version from [HERE](pythonForEducation.pdf).
 
 Download the [Example Programs](code.zip) 
+
+You can practice python coding from websites like [Trinket.io](https://trinket.io/python3).
+Copy the following lines
+```
+from pylab import *
+x = linspace(-pi, pi, 50)
+plot(x, sin(x))
+show()
+```
+Open [Trinket.io](https://trinket.io/python3) , paste it and execute.
  
 The book contains a lot of simple programs that are tested. More involved examples will be available on this website rather than bloating the book.
 
