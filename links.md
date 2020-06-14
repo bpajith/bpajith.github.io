@@ -5,6 +5,7 @@ description: "Web site of Ajith Kumar B.P."
 follow: true
 smooth-scroll: true
 math : true
+category: [personal]
 ---
 
 
@@ -20,15 +21,19 @@ https://jakevdp.github.io/PythonDataScienceHandbook/04.12-three-dimensional-plot
 
 [Differentiation and Integration](https://theengineeringmaths.com/wp-content/uploads/2017/11/num-diff-integ-web.pdf)
 ---
+[Matrix inversion](https://integratedmlai.com/matrixinverse/)
 
-(https://victers.kite.kerala.gov.in/)
+[Numerical Methods](https://www.codesansar.com/numerical-methods/)
+
+[Victer's](https://victers.kite.kerala.gov.in/)
 
 https://pynative.com/online-python-code-editor-to-execute-python-code/
 
-(https://www.liquidweb.com/kb/setup-lets-encrypt-ubuntu-18-04/)
+[Let's Encript on Ubunntu](https://www.liquidweb.com/kb/setup-lets-encrypt-ubuntu-18-04/)
 sudo apt install certbot
 apt install python-certbot-apache
 certbot --apache
+
 
 
  #forbidden [IP: 104.18.18.146 443]
