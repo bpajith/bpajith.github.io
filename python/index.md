@@ -28,6 +28,8 @@ Open [Trinket.io](https://trinket.io/python3) , paste it and execute.
 The book contains a lot of simple programs that are tested. More involved examples will be available on this website rather than bloating the book.
 
 ---
+This video will provide some idea about using Bigbluebutton.(Video sound quality is not good.)
+[Video instruction for Online class](bbb.mp4)  
 
 #### Numerical Methods in Physics
 
