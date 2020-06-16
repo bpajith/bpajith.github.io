@@ -1,0 +1,139 @@
+I"SZ<p><img src="/assets/blog/clamping.png" alt="" class="ui image medium lightbox floated" /></p>
+
+<div class="ui clearing divider"></div>
+
+<h2 id="first-order-ordinary-differential-equations">First Order Ordinary Differential Equations</h2>
+
+<p>Differential equations are one of the most important mathematical tools used in producing models for physical and biological processes. Analytic solutions are available in some cases but numerical methods are employed for solving most of the problems encountered in science and engineering. Here we explore some of the popular methods for solving the initial value problems involving first-order ordinary differential equations(ODE). The focus will be on solving simple examples using Python programming language. The Python basics required 
+for understanding the examples is given <a href="./python/index.html">here</a></p>
+
+<p>Consider the differential equation,</p>
+
+<p>:math:<code class="highlighter-rouge">\frac{dy}{dx}=f(x,y)</code>  with an initial value :math:<code class="highlighter-rouge">y(x_0) = y_0</code></p>
+
+<p>The derivative of the function and the value of the function at some initial value are known. The objective is to find out the value of the function for other values of x, starting from the given initial point. The underlying idea of any routine for solving the initial value problem is to rewrite the dy and dx as finite steps :math:<code class="highlighter-rouge">\Delta x</code> and :math:<code class="highlighter-rouge">\Delta x</code>, to convert the differential equation to an algebraic equation.</p>
+
+<p>:math:<code class="highlighter-rouge">y(x_{i+1}) = y_i + \Delta y  = y_i + \frac{\Delta y}{\Delta x} \times {\Delta x} = y_i + \frac{dy}{dx} \times {\Delta x}</code></p>
+
+<p>In the limit of making :math:<code class="highlighter-rouge">\Delta x</code> very small, a good approximation to the underlying differential equation is achieved. The process can be explained better with some examples. We choose a known function so that the error in the result can be easily checked.</p>
+
+<p><a href="code/euler-sine.py">euler-sine.py</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>		<span class="c1"># derivative of the function to be evaluated
+</span>	<span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">4</span>			<span class="c1"># number of points
+</span><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span> <span class="n">pi</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>	<span class="c1"># stepsize. Note that the Number of steps = Number of points -1 
+</span>
+<span class="n">xa</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>   	<span class="c1"># numpy array of store the variable values
+</span><span class="n">ya</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>	<span class="c1"># numpy array to store results
+</span>
+<span class="n">xa</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">ya</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fxy</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+	<span class="k">return</span> <span class="n">y</span> <span class="o">+</span> <span class="n">h</span> <span class="o">*</span> <span class="n">fxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>   <span class="c1"># Euler method
+</span>	
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+	<span class="n">ya</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">xa</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ya</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">f1</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+	<span class="n">xa</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">xa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">ya</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>  <span class="s">'Err = '</span><span class="p">,</span> <span class="n">ya</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>   <span class="c1"># the last point and error
+</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">ya</span><span class="p">,</span> <span class="s">'x-'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xa</span><span class="p">),</span> <span class="s">'+-'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p><img src="ODE1/pics/euler-sine.png" alt="" /></p>
+
+<p>The output of the code is shown above. We have deliberately selected a very large stepsize to show the error. The lower graph, marked with dots, are the correct values. The points marked with crosses are the outputs of the calculation. The reason for error is very clear. The Euler method which advances a solution from :math:<code class="highlighter-rouge">x_i</code> to :math:<code class="highlighter-rouge">x_{i+1}</code> is not symmetric, it advances the solution through an interval h, but uses derivative information only at the beginning of that interval.</p>
+
+<p>Better results are obtained if we take trial step to the midpoint of the interval and use the value of both x and y at that point to compute the real step across the whole interval. This is called the second-order Runge-Kutta or the midpoint method. To learn about the theory refer to <code class="highlighter-rouge">Runge-Kutta methods</code>_  , <code class="highlighter-rouge">Second order Runge-Kutta methods</code>_ or any other good books on numerical methods.</p>
+
+<p><a href="http://www.math.iit.edu/~fass/478578_Chapter_3.pdf">Runge-Kutta methods</a>
+<a href="http://mathforcollege.com/nm/mws/gen/08ode/mws_gen_ode_txt_runge2nd.pdf">Second order Runge-Kutta methods</a></p>
+
+<p><a href="code/euler-sine.py">rk2-sine.py</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>		<span class="c1"># derivative of the function to be evaluated
+</span>	<span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">4</span>				<span class="c1"># number of points
+</span><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> 	<span class="c1"># stepsize. Note that the Number of steps = Number of points -1 
+</span>
+<span class="n">xa</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>   	<span class="c1"># numpy array of store the variable values
+</span><span class="n">ya</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>	<span class="c1"># numpy array to store results
+</span>
+<span class="n">xa</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">ya</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">def</span> <span class="nf">rk2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fxy</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>   <span class="c1"># x, y , f(x,y)
+</span>	<span class="n">k1</span> <span class="o">=</span> <span class="n">fxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+	<span class="n">k2</span> <span class="o">=</span> <span class="n">fxy</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">y</span> <span class="o">+</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span> <span class="n">k1</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">k2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+	<span class="n">ya</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rk2</span><span class="p">(</span><span class="n">xa</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ya</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">f1</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+	<span class="n">xa</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">xa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">ya</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>  <span class="s">'Err = '</span><span class="p">,</span> <span class="n">ya</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+	 
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">ya</span><span class="p">,</span> <span class="s">'x-'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xa</span><span class="p">),</span> <span class="s">'o-'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="ODE1/pics/rk2-sine.png" alt="" class="ui image medium lightbox floated" /></p>
+
+<p>This procedure can be further extended to higher orders. The fourth order Runge-Kutta method is the most popular one and is commonly referred as the Runge-Kutta method. In each step the derivative is evaluated four times as shown in figure below. Once at the initial point, twice at trial midpoints, and once at a trial endpoint. Every trial evaluation uses the value of the function from the previous trial point, ie. :math:<code class="highlighter-rouge">k_2</code> is evaluated using :math:<code class="highlighter-rouge">k_1</code> and not using :math:<code class="highlighter-rouge">y_i</code>. From these derivatives the final function value is calculated.</p>
+
+<p><a href="ODE1/code/rk4-sine.py">rk4-sine.py</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>		<span class="c1"># derivative of the function to be evaluated
+</span>	<span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">4</span>				<span class="c1"># number of points
+</span><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>   	<span class="c1"># stepsize. Note that the Number of steps = Number of points -1 
+</span>
+<span class="n">xa</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>   	<span class="c1"># numpy array of store the variable values
+</span><span class="n">ya</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>	<span class="c1"># numpy array to store results
+</span>
+<span class="n">xa</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">ya</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">def</span> <span class="nf">rk4</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fxy</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>   <span class="c1"># x, y , f(x,y)
+</span>	<span class="n">k1</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">fxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+	<span class="n">k2</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">fxy</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">k1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+	<span class="n">k3</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">fxy</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">k2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+	<span class="n">k4</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">fxy</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">k3</span><span class="p">)</span>
+	<span class="k">return</span>  <span class="n">y</span> <span class="o">+</span> <span class="p">(</span> <span class="n">k1</span><span class="o">/</span><span class="mi">6</span> <span class="o">+</span> <span class="n">k2</span><span class="o">/</span><span class="mi">3</span> <span class="o">+</span> <span class="n">k3</span><span class="o">/</span><span class="mi">3</span> <span class="o">+</span> <span class="n">k4</span><span class="o">/</span><span class="mi">6</span> <span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+	<span class="n">ya</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rk4</span><span class="p">(</span><span class="n">xa</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ya</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">f1</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+	<span class="n">xa</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">xa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">ya</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>  <span class="s">'Err = '</span><span class="p">,</span> <span class="n">ya</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">ya</span><span class="p">,</span> <span class="s">'x-'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xa</span><span class="p">),</span> <span class="s">'o-'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="ODE1/pics/rk4-sine.png" alt="" class="ui image medium lightbox floated" /></p>
+
+<p>The reduction is error is clearly visible. We have used very coarse steps to highlight the error. You may change the value of ‘N’ in the code and rerun. Outputs for N=100 are shown below. Also change the code to remove the marking of points.</p>
+
+<p><img src="ODE1/pics/euler-sine-100N.png" alt="" class="ui image medium lightbox floated" /></p>
+
+<p>As we explained earlier, the error is due to the fact that the value of the derivative changes within the interval but the calculations assume the derivative at the starting point or obtained by some averaging. This can be demonstrated by choosing a function representing a straight line, where derivative is constant, as shown in the example below.</p>
+
+:ET

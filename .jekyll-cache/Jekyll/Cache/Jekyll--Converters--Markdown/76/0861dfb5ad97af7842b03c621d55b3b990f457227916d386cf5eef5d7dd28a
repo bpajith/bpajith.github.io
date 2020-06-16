@@ -1,0 +1,8 @@
+I"‚<p>The mass and spring problem is defined by the equation</p>
+
+<p>$\frac{d^{2}y}{dx^{2}}=-kx$</p>
+
+<p>The code listed below solves this problem using Eulerâ€™s method of integration and plots the position and velocity as a function of time. It does not use Numpy.</p>
+
+<p><img src="pics/ms-euler-1.png" alt="mass spring euler" title="Position and Velocity as a function of time" /></p>
+:ET

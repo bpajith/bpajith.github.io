@@ -1,0 +1,114 @@
+I"¡<h2 id="this-is-for-topic-2">thIs is for topic 2</h2>
+
+<div class="ui clearing hidden divider"></div>
+<div class="ui container">
+	<div class="ui relaxed divided items">
+	
+	<div class="item link">
+	  <a class="ui medium image raised red segment" href="/topic2/2020-05-03-newpost%20(3rd%20copy).html">
+		<img src="/assets/images/300x170.png" class="ui image lazy" data-src="/assets/blog/clamping.png" />
+	  </a>
+	  <div class="content">
+		<h1 class="ui header small" id="Post 1"><a href="/topic2/2020-05-03-newpost%20(3rd%20copy).html" class="ui dividing header teal"><i class="settings icon"></i>Post 1</a></h1>
+		<div class="meta">
+			    <a>work/</a>
+		</div>
+		<div class="description">
+		  Post summary for all posts page.
+		</div>
+		<div class="extra">
+		  <div>May 03, 2020</div>
+			
+			<!--
+			<a class="ui basic image large label right floated">
+			  <img src="/assets/images/ajith.jpg">
+			  Ajith B.P
+			</a>
+			-->
+		</div>
+	  </div>
+	</div>
+	<div class="ui clearing hidden divider"></div>	
+	
+	<div class="item link">
+	  <a class="ui medium image raised red segment" href="/topic2/2020-05-03-newpost%20(4th%20copy).html">
+		<img src="/assets/images/300x170.png" class="ui image lazy" data-src="/assets/blog/clamping.png" />
+	  </a>
+	  <div class="content">
+		<h1 class="ui header small" id="Post 1"><a href="/topic2/2020-05-03-newpost%20(4th%20copy).html" class="ui dividing header teal"><i class="settings icon"></i>Post 1</a></h1>
+		<div class="meta">
+			    <a>work/</a>
+		</div>
+		<div class="description">
+		  Post summary for all posts page.
+		</div>
+		<div class="extra">
+		  <div>May 03, 2020</div>
+			
+			<!--
+			<a class="ui basic image large label right floated">
+			  <img src="/assets/images/ajith.jpg">
+			  Ajith B.P
+			</a>
+			-->
+		</div>
+	  </div>
+	</div>
+	<div class="ui clearing hidden divider"></div>	
+	
+	<div class="item link">
+	  <a class="ui medium image raised red segment" href="/topic2/2020-05-03-newpost%20(5th%20copy).html">
+		<img src="/assets/images/300x170.png" class="ui image lazy" data-src="/assets/blog/clamping.png" />
+	  </a>
+	  <div class="content">
+		<h1 class="ui header small" id="Post 1"><a href="/topic2/2020-05-03-newpost%20(5th%20copy).html" class="ui dividing header teal"><i class="settings icon"></i>Post 1</a></h1>
+		<div class="meta">
+			    <a>personal/</a>
+		</div>
+		<div class="description">
+		  Post summary for all posts page.
+		</div>
+		<div class="extra">
+		  <div>May 03, 2020</div>
+			
+			<!--
+			<a class="ui basic image large label right floated">
+			  <img src="/assets/images/ajith.jpg">
+			  Ajith B.P
+			</a>
+			-->
+		</div>
+	  </div>
+	</div>
+	<div class="ui clearing hidden divider"></div>	
+	
+	<div class="item link">
+	  <a class="ui medium image raised red segment" href="/topic2/2020-05-03-newpost.html">
+		<img src="/assets/images/300x170.png" class="ui image lazy" data-src="/assets/blog/clamping.png" />
+	  </a>
+	  <div class="content">
+		<h1 class="ui header small" id="Post 1"><a href="/topic2/2020-05-03-newpost.html" class="ui dividing header teal"><i class="settings icon"></i>Post 1</a></h1>
+		<div class="meta">
+			    <a>work/</a>
+		</div>
+		<div class="description">
+		  Post summary for all posts page.
+		</div>
+		<div class="extra">
+		  <div>May 03, 2020</div>
+			
+			<!--
+			<a class="ui basic image large label right floated">
+			  <img src="/assets/images/ajith.jpg">
+			  Ajith B.P
+			</a>
+			-->
+		</div>
+	  </div>
+	</div>
+	<div class="ui clearing hidden divider"></div>	
+	
+	</div>
+</div>
+
+:ET
