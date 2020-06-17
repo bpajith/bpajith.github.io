@@ -28,9 +28,14 @@ Open [Trinket.io](https://trinket.io/python3) , paste it and execute.
 The book contains a lot of simple programs that are tested. More involved examples will be available on this website rather than bloating the book.
 
 ---
+Tutorial Videos to learn Python
+
+[Python4schools by Ajith Kumar](https://www.youtube.com/watch?v=KlLSm797-Bs&t=25s)
+
+[From FreeCodeCamp](https://www.youtube.com/watch?v=rfscVS0vtbw)
+[Python for Beginners by Mosh](https://www.youtube.com/watch?v=_uQrJ0TkZlc) 
+
+There are many more on Youtube.
+
 This video will provide some idea about using Bigbluebutton.(Video sound quality is not good.)
 [Video instruction for Online class](bbb.mp4)  
-
-#### Numerical Methods in Physics
-
-
