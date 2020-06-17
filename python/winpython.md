@@ -21,7 +21,7 @@ This should start python
 
 Otherwise reinstall using the same file. Second time it will show more options.
 
-c:\> pip install matplot lib
+c:\> pip install matplotlib
 
 This should install Numpy and matplotlib
 
