@@ -48,3 +48,8 @@ This video will provide some idea about using Bigbluebutton.(Video sound quality
 [Computational Physics with Python by Dr.  Eric Ayars](http://www.fizika.unios.hr/rf/wp-content/uploads/sites/67/2011/02/CPwP.pdf)
 
 ---
+
+[Install Python on Windows](winpython)
+
+---
+
