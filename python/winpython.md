@@ -29,6 +29,10 @@ Start IDLE from the main menu.
 From the File menu of IDLE create new file. Type your program in it, save it with a .py extension and Press F5 to run it.
 
 
+[Video on Installing Python on Windows](python-install.mp4)
+
+---
+
 
  
 
