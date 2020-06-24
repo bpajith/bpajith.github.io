@@ -51,5 +51,7 @@ This video will provide some idea about using Bigbluebutton.(Video sound quality
 
 [Install Python on Windows](winpython)
 
+[Configuring Geany](geany-settings.mp4)
+
 ---
 
