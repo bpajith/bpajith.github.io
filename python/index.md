@@ -53,5 +53,8 @@ This video will provide some idea about using Bigbluebutton.(Video sound quality
 
 [Configuring Geany](geany-settings.mp4)
 
+[Review of First two classes](python-review-1.mp4)
+
+
 ---
 
