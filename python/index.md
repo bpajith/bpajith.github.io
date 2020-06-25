@@ -31,6 +31,8 @@ The book contains a lot of simple programs that are tested. More involved exampl
 Story of a project called 
 [Computer Programming for Everybody](https://www.python.org/doc/essays/cp4e/)
 
+A thesis on [PROMOTING COMPUTER LITERACY THROUGH PROGRAMMING PYTHON ](http://ftp.ntua.gr/mirror/python/sigs/edu-sig/miller-dissertation.pdf)
+
 ---
 
 Tutorial Videos to learn Python
