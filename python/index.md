@@ -28,6 +28,10 @@ Open [Trinket.io](https://trinket.io/python3) , paste it and execute.
 The book contains a lot of simple programs that are tested. More involved examples will be available on this website rather than bloating the book.
 
 ---
+Story of a project called 
+[Computer Programming for Everybody](https://www.python.org/doc/essays/cp4e/)
+
+---
 
 Tutorial Videos to learn Python
 
