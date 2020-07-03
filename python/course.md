@@ -29,6 +29,9 @@ Those who are using MSWindows may follow the instruction is the video
 
 [Review of First two classes](python-review-1.mp4)
 
+
+[Python Challenges](https://hourofpython.trinket.io/python-challenges)
+
 ---
 
 Tutorial Videos to learn Python

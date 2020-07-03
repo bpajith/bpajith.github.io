@@ -36,6 +36,4 @@ Various Links
 
 [Let's Encript on Ubunntu](https://www.liquidweb.com/kb/setup-lets-encrypt-ubuntu-18-04/)
 
- 
-[The Mythical Man-Month by Frederick P. Brooks, Jr.]
-(https://is.muni.cz/www/jirqa/The.Mythical.Man.Month.F.Brooks.pdf)
+[Exploring Computational Thinking ](https://edu.google.com/resources/programs/exploring-computational-thinking/)
